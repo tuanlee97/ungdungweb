@@ -48,21 +48,21 @@
 						<div class="blog_post">
 							<div class="blog_image" style="background-image:url(source/images/blog_4.jpg)"></div>
 							<div class="blog_text">Etiam leo nibh, consectetur nec orci et, tempus tempus ex</div>
-							<div class="blog_button"><a href="source/blog_single.html">Continue Reading</a></div>
+							<div class="blog_button"><a href="{{route('blogdetails')}}">Continue Reading</a></div>
 						</div>
 
 						<!-- Blog post -->
 						<div class="blog_post">
 							<div class="blog_image" style="background-image:url(source/images/blog_5.jpg)"></div>
 							<div class="blog_text">Sed viverra pellentesque dictum. Aenean ligula justo, viverra in lacus porttitor</div>
-							<div class="blog_button"><a href="source/blog_single.html">Continue Reading</a></div>
+							<div class="blog_button"><a href="{{route('blogdetails')}}">Continue Reading</a></div>
 						</div>
 
 						<!-- Blog post -->
 						<div class="blog_post">
 							<div class="blog_image" style="background-image:url(source/images/blog_6.jpg)"></div>
 							<div class="blog_text">In nisl tortor, tempus nec ex vitae, bibendum rutrum mi. Integer tempus nisi</div>
-							<div class="blog_button"><a href="source/blog_single.html">Continue Reading</a></div>
+							<div class="blog_button"><a href="{{route('blogdetails')}}">Continue Reading</a></div>
 						</div>
 
 					</div>

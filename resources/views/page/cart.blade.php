@@ -51,9 +51,8 @@
 						</div>
 
 						<div class="cart_buttons">
-							<button type="button" class="button cart_button_clear">Add to Cart</button>
-							<button type="button" class="button cart_button_checkout">Add to Cart</button>
-						</div>
+							<button type="button" class="button cart_button_clear">Cancel</button>
+							<button type="button" class="button cart_button_checkout" onclick="Redirect();" >Add to Cart</button>
 					</div>
 				</div>
 			</div>
@@ -62,5 +61,14 @@
 
 @endsection	
 @section('script')
+<script type="text/javascript">
+         <!--
+            function Redirect() {
+               window.location="{{route('home')}}";
+            }
+            
+           
+         //-->
+      </script>
 <script src="source/js/cart_custom.js"></script>
 @endsection

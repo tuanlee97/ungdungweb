@@ -67,7 +67,7 @@
 
 								<div class="product_price">$2000</div>
 								<div class="button_container">
-									<button type="button" class="button cart_button">Add to Cart</button>
+									<button type="button" class="button cart_button"><a href="{{route('home')}}">Add to Cart</a>></button>
 									<div class="product_fav"><i class="fas fa-heart"></i></div>
 								</div>
 								

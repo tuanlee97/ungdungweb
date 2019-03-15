@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>OneTech</title>
+<title>Cellphone Plus</title>
 <base href="{{asset('')}}">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,8 +21,6 @@
 	
 	<!--Phần nội dung riêng từng trang -->
 	@yield('content')
-	<!-- Newsletter -->
-	@include('newsletter')
 	<!-- Footer -->
 	@include('footer')
 </div>
@@ -35,6 +33,8 @@
 <script src="source/plugins/greensock/animation.gsap.min.js"></script>
 <script src="source/plugins/greensock/ScrollToPlugin.min.js"></script>
 <script src="source/plugins/easing/easing.js"></script>
+<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+@include('sweetalert::alert')
 @yield('script')
 
 </body>

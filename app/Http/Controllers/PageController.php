@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 use App\Slide;
+use App\Product;
+use App\ProductType;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function getIndex(){
       $slide = Slide::all();
-    	return view('page.home');
+      $new_product = Product::Where('new',1)->get();
+      $new_product_type = ProductType::all();
+    	return view('page.home',compact('slide','new_product','new_product_type'));
     }
       public function getShop(){
-    	return view('page.shop');
+      $product = Product::paginate(15);
+      $product_type = ProductType::all();
+    	return view('page.shop',compact('product','product_type'));
     }
     public function getAbout(){
     	return view('page.about');
@@ -32,3 +38,4 @@ class PageController extends Controller
     	return view('page.blogdetails');
     }
 }
+
