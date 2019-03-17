@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+body { 
+  font-family: "Montserrat";
+  overflow: hidden;
+  zoom: 90%;
+}
+
+body:before {
+  content: "";
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 300px;
+  margin: auto;
+  z-index: -1;
+  background: url(https://media-cdn.tripadvisor.com/media/photo-s/0d/62/c6/a2/the-montain-is-discovered.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1) !important;
+  
+}
+
+body:after {
+  content: "";
+  width: 300px;
+  height: 300px;
+  background: url(https://media-cdn.tripadvisor.com/media/photo-s/0d/62/c6/a2/the-montain-is-discovered.jpg) 0%;
+  background-size: cover;
+  font-family: "Montserrat";
+  filter: grayscale(1);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -30px;
+  left: 300px;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(https://media-cdn.tripadvisor.com/media/photo-s/0d/62/c6/a2/the-montain-is-discovered.jpg)
+    15% ;
+  background-size: cover;
+  margin: auto;
+  width: 270px;
+  height: 540px;
+  border: 11px solid #222;
+  border-radius: 36px;
+  filter: grayscale(1);
+}
+
+.container:before {
+  position: absolute;
+  left: calc(50% - 28%);
+  top: -1px;
+  width: 55%;
+  background: #222;
+  height: 25px;
+  content: "";
+  border-radius: 0 0 15px 15px;
+}
+
+#contactform {
+  position: absolute;
+  left: 0;
+  bottom: 65px;
+  margin: auto;
+}
+
+#contactform input,
+#contactform textarea {
+  font-family: "Montserrat";
+  font-weight: 700;
+  margin-bottom: 12px;
+  width: 100%;
+  outline: none;
+  text-transform: capitalize, lowercase;
+  background: transparent;
+  letter-spacing: 2px;
+  font-size: 1em;
+  outline: 0 !important;
+  border-width: 0px 0px 1px 0px !important;
+  border-color: #ddd !important;
+}
+
+#contactform input {
+  padding-left: 2px;
+  padding-top: 20px;
+  height: 45px;
+  color: #ddd;
+}
+
+#contactform .btn {
+  width: 100%;
+  height: 45px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid #fff;
+  margin-top: 25px;
+  border-radius: 25px;
+  outline: none;
+  color: #ddd !important;
+}
+
+::-webkit-input-placeholder {
+  color: #ddd;
+  font-weight: 100;
+  letter-spacing: 0ch;  
+}
+
+.tree > img {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 120px;
+  opacity: 0.7;
+}
+
+.name-app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 140px auto;
+}
+
+h2 {
+  font-size: 30px;
+  text-align: center;
+  font-family: "Montserrat";
+  letter-spacing: -2px;
+  font-weight: 900;
+  color: #222;
+  letter-spacing: -2px;
+}
+
+span {
+  margin-left: -5px;
+  color: rgba(196, 193, 193, 0.89);
+}
