@@ -1,5 +1,4 @@
 @extends('admin.layouts.index')
-
 @section('content')
 <div id="page-wrapper">
 	<div class="row">
