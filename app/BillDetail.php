@@ -1,4 +1,4 @@
-<?php
+php artisan key:generate<?php
 
 namespace App;
 
