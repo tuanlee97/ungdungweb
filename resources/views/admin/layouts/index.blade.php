@@ -41,9 +41,10 @@
     <!-- Page-Level Plugin CSS - Dashboard -->
     <link href="admin_asset/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
     <link href="admin_asset/css/plugins/timeline/timeline.css" rel="stylesheet">
-    
+
     <!-- SB Admin CSS - Include with every page -->
     <link href="admin_asset/css/sb-admin.css" rel="stylesheet">
+
     @yield('style')
 </head>
 
@@ -76,7 +77,7 @@
     <script src="admin_asset/dist/js/sb-admin-2.js"></script>
 
     <script type="text/javascript" language="javascript" src="admin_asset/ckeditor/ckeditor.js" ></script>
- --}}
+    --}}
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script src="admin_asset/js/jquery-1.10.2.js"></script>
     <script src="admin_asset/js/bootstrap.min.js"></script>
@@ -85,17 +86,28 @@
     <!-- Page-Level Plugin Scripts - Tables -->
     <script src="admin_asset/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="admin_asset/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-
     <!-- SB Admin Scripts - Include with every page -->
     <script src="admin_asset/js/sb-admin.js"></script>
-    <script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.delete').click(function() {
+                var r = confirm("bạn muốn xóa!");
+                if (r == true) {
+                    return true;
+                } else {
+                  return false;
+              }
+          });
+        });
+    </script>
+{{--     <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
             responsive: true
         });
     });
     </script>
-
+    --}}
     @yield('script')
 
 </body>

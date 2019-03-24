@@ -9,7 +9,7 @@ use App\User;
 class UserController extends Controller
 {
     public function getDanhSach(){
-		$user = User::all();	
+		$user = User::all();
     	 return view('admin.user.danhsach',['user'=>$user]);
     }
     public function getSua($id){
@@ -52,8 +52,8 @@ class UserController extends Controller
 
     	$user->save();
     	return redirect('admin/user/sua/'.$id)->with('thongbao','Cập nhật thành công');
-    	
-    
+
+
     }
 
 
@@ -92,7 +92,7 @@ class UserController extends Controller
     	$user->save();
 
     	return redirect('admin/user/them')->with('thongbao','Thêm thành công');
-    }	
+    }
 
     public function getXoa($id){
     	$user = User::find($id);
@@ -103,7 +103,7 @@ class UserController extends Controller
     public function getloginAdmin(){
         return view('admin.login');
     }
-     
+
     public function postloginAdmin(Request $request)
     {
         $this->validate($request,
