@@ -82,7 +82,7 @@ class TypeProductsController extends Controller
 
 
         // Thêm dữ liệu vào CSDL, ở đây 1 record dữ liệu được xem như một đối tượng (object), vì ta sử dụng Eloquent nên tất cả các bảng trong CSDL đã được ánh xạ thành Model trong Laravel. Do đó dữ liệu mới được thêm vào bằng cách tạo 1 đối tượng mới.
-
+         $ngay=date("Y").":".date("m").":".date("d").":".date("H").":".date("i").":".date("s");
         $typeproducts = new ProductType;
         $typeproducts->name = $request->name;
         $typeproducts->description = $request->description;
@@ -102,7 +102,10 @@ class TypeProductsController extends Controller
             $file->move("source/images/category/",$image);
             $typeproducts->image=$image;
         }
+        $typeproducts->created_at = '2019-03-23 21:44:31';
+        $typeproducts->updated_at = '2020-03-23 01:45:31';
         $typeproducts->save();
+
         return redirect('admin/typeproducts/sua/'.$id)->with('thongbao','Cập Nhật Thành Công');
     }
 

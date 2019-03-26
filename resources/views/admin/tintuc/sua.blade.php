@@ -29,7 +29,7 @@
                                 <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
                                 <fieldset>
                                     <div class="form-group">
-                                       ID<input class="form-control" placeholder="" name="id" type="text" value="{{$tintuc->id}}" autofocus>
+                                       ID<input class="form-control" placeholder="" name="id" disabled="disabled" type="text" value="{{$tintuc->id}}" autofocus>
                                     </div>
                                     <div class="form-group">
                                         Title<input class="form-control" placeholder="" name="title" type="text" value="{{$tintuc->title}}">

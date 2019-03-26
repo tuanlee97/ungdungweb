@@ -20,6 +20,12 @@ Route::get('index',
     'uses'=>'PageController@getIndex'
 ]
 );
+Route::get('product-type/{type}',
+[
+    'as'=>'producttype',
+    'uses'=>'PageController@getProducttype'
+]
+);
 Route::get('shop',
 [
     'as'=>'shop',
@@ -38,7 +44,7 @@ Route::get('blog',
     'uses'=>'PageController@getBlog'
 ]
 );
-Route::get('blog-details',
+Route::get('blog-details/{id}',
 [
     'as'=>'blogdetails',
     'uses'=>'PageController@getBlogdetails'
@@ -50,7 +56,13 @@ Route::get('cart',
     'uses'=>'PageController@getCart'
 ]
 );
-Route::get('product-details',
+Route::get('add-to-cart/{id}',
+[
+    'as'=>'addcart',
+    'uses'=>'PageController@getaddtoCart'
+]
+);
+Route::get('product-details/{id}',
 [
     'as'=>'productdetails',
     'uses'=>'PageController@getProductdetails'
