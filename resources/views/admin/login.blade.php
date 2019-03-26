@@ -28,7 +28,7 @@
 
     <!-- Custom Fonts -->
     <link href="admin_asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+
 
 </head>
 
@@ -44,17 +44,17 @@
                     </div>
                     <div class="panel-body">
                         @if(count($errors)>0)
-                            <div class="alert alert-danger">        
-                                    @foreach($errors->all() as $err)
-                                        {{$err}}<br>
-                                    @endforeach
-                            </div>
-                            @endif
-        
+                        <div class="alert alert-danger">
+                            @foreach($errors->all() as $err)
+                            {{$err}}<br>
+                            @endforeach
+                        </div>
+                        @endif
+
                         @if(session('thongbao'))
-                            <div class="alert alert-success">
-                                {{session('thongbao')}}
-                            </div>
+                        <div class="alert alert-success">
+                            {{session('thongbao')}}
+                        </div>
                         @endif
                         <form role="form" action="admin/dangnhap" method="post">
                             <fieldset>
@@ -72,6 +72,7 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
+
                             </fieldset>
                         </form>
                     </div>
@@ -102,11 +103,15 @@
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
+            var $submit = $("button[type = 'submit']");
+            $submit.click(function() {
+                // event.preventDefault();
+            });
         });
-    });
     </script>
 
 

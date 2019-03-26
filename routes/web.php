@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('index',
-[
-    'as'=>'home',
-    'uses'=>'PageController@getIndex'
-]
+    [
+        'as'=>'home',
+        'uses'=>'PageController@getIndex'
+    ]
 );
 Route::get('product-type/{type}',
 [
@@ -27,35 +27,44 @@ Route::get('product-type/{type}',
 ]
 );
 Route::get('shop',
-[
-    'as'=>'shop',
-    'uses'=>'PageController@getShop'
-]
+    [
+        'as'=>'shop',
+        'uses'=>'PageController@getShop'
+    ]
 );
 Route::get('about',
-[
-    'as'=>'about',
-    'uses'=>'PageController@getAbout'
-]
+    [
+        'as'=>'about',
+        'uses'=>'PageController@getAbout'
+    ]
 );
 Route::get('blog',
-[
-    'as'=>'blog',
-    'uses'=>'PageController@getBlog'
-]
+    [
+        'as'=>'blog',
+        'uses'=>'PageController@getBlog'
+    ]
 );
+<<<<<<< HEAD
 Route::get('blog-details/{id}',
 [
     'as'=>'blogdetails',
     'uses'=>'PageController@getBlogdetails'
 ]
+=======
+Route::get('blog-details',
+    [
+        'as'=>'blogdetails',
+        'uses'=>'PageController@getBlogdetails'
+    ]
+>>>>>>> c67a1ada01be40a9946a1370e1335cdd0e0ecbf9
 );
 Route::get('cart',
-[
-    'as'=>'cart',
-    'uses'=>'PageController@getCart'
-]
+    [
+        'as'=>'cart',
+        'uses'=>'PageController@getCart'
+    ]
 );
+<<<<<<< HEAD
 Route::get('add-to-cart/{id}',
 [
     'as'=>'addcart',
@@ -67,12 +76,19 @@ Route::get('product-details/{id}',
     'as'=>'productdetails',
     'uses'=>'PageController@getProductdetails'
 ]
+=======
+Route::get('product-details',
+    [
+        'as'=>'productdetails',
+        'uses'=>'PageController@getProductdetails'
+    ]
+>>>>>>> c67a1ada01be40a9946a1370e1335cdd0e0ecbf9
 );
 Route::get('contact',
-[
-    'as'=>'contact',
-    'uses'=>'PageController@getContact'
-]
+    [
+        'as'=>'contact',
+        'uses'=>'PageController@getContact'
+    ]
 );
 
 Route::get('admin/dangnhap','UserController@getloginAdmin');

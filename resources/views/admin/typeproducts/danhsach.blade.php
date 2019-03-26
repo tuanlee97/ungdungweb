@@ -28,36 +28,36 @@
 								<th>name</th>
 								<th>description</th>
                                 <th>Image</th>
-                                {{-- <th>image</th> --}}
-							</tr>
-						</thead>
-						<tbody>
-							@foreach ($typeproduct as $tp)
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                         @foreach ($typeproduct as $tp)
 
-							<tr class="odd gradeX">
-								<td>{{$tp->id}}</td>
-								<td>{{$tp->name}}</td>
-                                <td>{{$tp->description}}</td>
-                                <td><img width="100px" src="source/images/category/{{$tp->image}}" class="img-responsive" alt="Image"></td>
-								<td class="center">
-									<a href="admin/typeproducts/xoa/{{$tp->id}}" style="list-style: none;"><button type="button" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Xoá"><i class="fa fa-trash-o"></i>
-									</button>
-									<a href="admin/typeproducts/sua/{{$tp->id}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Sửa" aria-describedby="tooltip478219"><i class="fa fa-pencil"></i></a>
-								</td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-					<!-- /.table-responsive -->
+                         <tr class="odd gradeX">
+                            <td>{{$tp->id}}</td>
+                            <td>{{$tp->name}}</td>
+                            <td>{{$tp->description}}</td>
+                            <td><img width="100px" src="source/images/category/{{$tp->image}}" class="img-responsive" alt="Image"></td>
+                            <td class="center">
+                               <a class="delete" href="admin/typeproducts/xoa/{{$tp->id}}" style="list-style: none;"><button type="button" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Xoá"><i class="fa fa-trash-o"></i>
+                               </button></a>
+                               <a href="admin/typeproducts/sua/{{$tp->id}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Sửa" aria-describedby="tooltip478219"><i class="fa fa-pencil"></i></a>
+                           </td>
+                       </tr>
+                       @endforeach
+                   </tbody>
+               </table>
+               <!-- /.table-responsive -->
 
-				</div>
-				<!-- /.panel-body -->
-			</div>
-			<!-- /.panel -->
-		</div>
-		<!-- /.col-lg-12 -->
-	</div>
-	<!-- /.row -->
+           </div>
+           <!-- /.panel-body -->
+       </div>
+       <!-- /.panel -->
+   </div>
+   <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
 
 </div>
 <!-- /#page-wrapper -->

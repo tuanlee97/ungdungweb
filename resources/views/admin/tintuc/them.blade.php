@@ -11,26 +11,23 @@
                         </div>
                         <div class="panel-body">
                             @if(count($errors)>0)
-                            <div class="alert alert-danger">        
+                            <div class="alert alert-danger">
                                     @foreach($errors->all() as $err)
                                         {{$err}}<br>
                                     @endforeach
                             </div>
                             @endif
-        
+
                         @if(session('thongbao'))
                             <div class="alert alert-success">
                                 {{session('thongbao')}}
                             </div>
                         @endif
-                            
+
 
                             <form method="post" enctype="multipart/form-data" action="admin/tintuc/them">
                                 <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
                                 <fieldset>
-                                    <div class="form-group">
-                                       ID<input class="form-control" placeholder="" name="id" type="text" autofocus>
-                                    </div>
                                     <div class="form-group">
                                         Title<input class="form-control" placeholder="" name="title" type="text" value="">
                                     </div>

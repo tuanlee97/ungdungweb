@@ -35,7 +35,7 @@
                         <p><label></label></p>
                         <input type="text" class="form-control input-width" name="description" placeholder="Nhập nội dung" value="{{$typeproducts->description}}" />
                         <p><label>Hình</label></p>
-                        <input type="file" name="image"  class="form-control" >
+                        <input type="file" name="image"  class="form-control" value="">
                     </div>
 
 
