@@ -30,7 +30,7 @@
 							<div class="sidebar_subtitle brands_subtitle">Brands</div>
 							<ul class="brands_list">
 								@foreach ($product_type as $loai)
-								<li class="brand"><a href="{{route('producttype',$loai->id)}}">{{$loai->name}}</a></li>
+								<li class="brand"><a href="#">{{$loai->name}}</a></li>
 							@endforeach
 							</ul>
 						</div>
@@ -90,10 +90,10 @@
 								<!-- Product Item New -->
 							<div class="product_item is_new">
 								<div class="product_border"></div>
-								<div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="{{route('productdetails',$sanpham->id)}}"><img src="source/images/product/{{$sanpham->image}}" alt=""></a></div>
+								<div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="{{route('productdetails')}}"><img src="source/images/product/{{$sanpham->image}}" alt=""></a></div>
 								<div class="product_content">
-									<div class="product_price"><a href="{{route('productdetails',$sanpham->id)}}">${{$sanpham->unit_price}}</a></div>
-									<div class="product_name"><div><a href="{{route('productdetails',$sanpham->id)}}" tabindex="0">{{$sanpham->name}}</a></div></div>
+									<div class="product_price"><a href="{{route('productdetails')}}">${{$sanpham->unit_price}}</a></div>
+									<div class="product_name"><div><a href="{{route('productdetails')}}" tabindex="0">{{$sanpham->name}}</a></div></div>
 								</div>
 								<div class="product_fav"><i class="fas fa-heart"></i></div>
 								<ul class="product_marks">
@@ -108,10 +108,10 @@
 							
 							<div class="product_item discount">
 								<div class="product_border"></div>
-								<div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="{{route('productdetails',$sanpham->id)}}"><img src="source/images/product/{{$sanpham->image}}" alt=""></a></div>
+								<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="source/images/product/{{$sanpham->image}}" alt=""></div>
 								<div class="product_content">
-									<div class="product_price"><a href="{{route('productdetails',$sanpham->id)}}">${{$sanpham->promotion_price}}<span>${{$sanpham->unit_price}}</span></a></div>
-									<div class="product_name"><div><a href="{{route('productdetails',$sanpham->id)}}" tabindex="0">{{$sanpham->name}}</a></div></div>
+									<div class="product_price">${{$sanpham->promotion_price}}<span>${{$sanpham->unit_price}}</span></div>
+									<div class="product_name"><div><a href="#" tabindex="0">{{$sanpham->name}}</a></div></div>
 								</div>
 								<div class="product_fav"><i class="fas fa-heart"></i></div>
 								<ul class="product_marks">
@@ -123,10 +123,10 @@
 							<!-- Product Item Normal -->
 							<div class="product_item">
 								<div class="product_border"></div>
-								<div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="{{route('productdetails',$sanpham->id)}}"><img src="source/images/product/{{$sanpham->image}}" alt=""></a></div>
+								<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="source/images/product/{{$sanpham->image}}" alt=""></div>
 								<div class="product_content">
-									<div class="product_price"><a href="{{route('productdetails',$sanpham->id)}}">${{$sanpham->unit_price}}</a></div>
-									<div class="product_name"><div><a href="{{route('productdetails',$sanpham->id)}}" tabindex="0">{{$sanpham->name}}</a></div></div>
+									<div class="product_price">${{$sanpham->unit_price}}</div>
+									<div class="product_name"><div><a href="#" tabindex="0">{{$sanpham->name}}</a></div></div>
 								</div>
 								<div class="product_fav"><i class="fas fa-heart"></i></div>
 
@@ -142,7 +142,7 @@
 						<!-- Shop Page Navigation -->
 
 						<div class="shop_page_nav d-flex flex-row">
-							<div>
+							<div class="page_nav d-flex flex-row">
 								{{$product->links()}}
 							</div>
 							

@@ -52,7 +52,7 @@
 												<ul class="custom_list clc">
 													<li><a class="clc" href="#">All Categories</a></li>
 													@foreach($loai_sp as $loai)
-													<li><a class="clc" href="{{route('producttype',$loai->id)}}">{{$loai->name}}</a></li>
+													<li><a class="clc" href="#">{{$loai->name}}</a></li>
 													@endforeach
 												</ul>
 											</div>
@@ -70,7 +70,7 @@
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
 								<div class="wishlist_icon"><img src="source/images/heart.png" alt=""></div>
 								<div class="wishlist_content">
-									<div class="wishlist_text"></div>
+									<div class="wishlist_text"><a href="#">Wishlist</a></div>
 									<div class="wishlist_count"></div>
 								</div>
 							</div>
@@ -80,24 +80,11 @@
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
 										<img src="source/images/cart.png" alt="">
-										<div class="cart_count"><span>
-											@if(Session::has('cart'))
-												{{Session('cart')->totalQty}}
-											@else 0 
-											@endif
-										 </span>
-										</div>
+										<div class="cart_count"><span> </span></div>
 									</div>
 									<div class="cart_content">
-							
 										<div class="cart_text"><a href="{{route('cart')}}">Cart</a></div>
-										<div class="cart_price">
-												@if(Session::has('cart'))
-												{{Session('cart')->totalPrice}} $
-											@else 0 $
-											@endif
-											
-										</div>
+										<div class="cart_price"></div>
 									</div>
 								</div>
 							</div>
@@ -126,7 +113,7 @@
 
 								<ul class="cat_menu">
 									@foreach($loai_sp as $loai)
-									<li><a href="{{route('producttype',$loai->id)}}">{{$loai->name}}<i class="fas fa-chevron-right ml-auto"></i></a></li>
+									<li><a href="#">{{$loai->name}}<i class="fas fa-chevron-right ml-auto"></i></a></li>
 									@endforeach
 								</ul>
 							</div>

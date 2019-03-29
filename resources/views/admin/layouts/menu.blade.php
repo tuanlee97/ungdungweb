@@ -1,6 +1,5 @@
-
-<div class="navbar-default navbar-static-side" role="navigation">
-                <div class="sidebar-collapse">
+<div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
@@ -13,47 +12,24 @@
                             </div>
                             <!-- /input-group -->
                         </li>
+
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Quản Lí Tin Tức<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-table fa-fw"></i>Product<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="admin/tintuc/danhsach">Danh Sách Tin Tức</a>
+                                    <a href="admin/product/ds">Danh sách</a>
                                 </li>
                                 <li>
-                                    <a href="admin/tintuc/them">Thêm Tin Tức</a>
+                                    <a href="admin/product/add">Thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
-                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i>Quản Lí User<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="admin/user/danhsach">Danh Sách User</a>
-                                </li>
-                                <li>
-                                    <a href="admin/user/them">Thêm User</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i>Quản Lí Products_Type<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="admin/typeproducts/danhsach">Danh Sách</a>
-                                </li>
-                                <li>
-                                    <a href="admin/typeproducts/them">Thêm</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+
+
+
+
+
                     </ul>
-                    <!-- /#side-menu -->
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
