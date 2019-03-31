@@ -84,12 +84,9 @@ class TypeProductsController extends Controller
 
 
         // Thêm dữ liệu vào CSDL, ở đây 1 record dữ liệu được xem như một đối tượng (object), vì ta sử dụng Eloquent nên tất cả các bảng trong CSDL đã được ánh xạ thành Model trong Laravel. Do đó dữ liệu mới được thêm vào bằng cách tạo 1 đối tượng mới.
-<<<<<<< HEAD
+
          $ngay=date("Y").":".date("m").":".date("d").":".date("H").":".date("i").":".date("s");
         $typeproducts = new ProductType;
-=======
-
->>>>>>> c67a1ada01be40a9946a1370e1335cdd0e0ecbf9
         $typeproducts->name = $request->name;
         $typeproducts->description = $request->description;
         if($request->hasFile('image'))

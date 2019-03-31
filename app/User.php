@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+<<<<<<< HEAD
     use Notifiable;
 
     /**
@@ -36,4 +37,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+=======
+   protected $table ='users';
+>>>>>>> 2e37d6967574d35741ecb1ea394472e03aaca198
 }

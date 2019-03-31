@@ -3,7 +3,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Tin Tức</h1>
+            <h1 class="page-header">Đơn Hàng</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -26,27 +26,40 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Title</th>
-                                <th>Content</th>
-                                <th>Image</th>
-                                <th>Create_at</th>
+                                <th>ID Customer</th>
+                                <th>Date Order</th>
+                                <th>Total Price</th>
+                                <th>Note</th>
+                                <th>Status</th>
+                                <th>Date Update</th>
                                 <th>Action</th>
 
 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($tintuc as $tt)
+                            @foreach($bill as $bll)
                             <tr class="odd gradeX" >
-                                <td>{{$tt->id}}</td>
-                                <td>{{$tt->title}}</td>
-                                <td>{{$tt->content}}</td>
-                                <td><img width="150px" src="source/images/{{$tt->image}}" class="img-responsive" alt="Image"></td>
-                                <td>{{$tt->create_at}}</td>
+                                <td>{{$bll->id}}</td>
+                                <td>{{$bll->id_customer}}</td>
+                                <td>{{$bll->date_order}}</td>
+                                <td>{{$bll->total}}</td>
+                                <td>{{$bll->note}}</td>
+                                <td>@if($bll->status=='')
+                                		{{"Chờ xử lý"}}
+									@elseif($bll->status==0)
+										{{"Đã hủy"}}
+									@else
+										{{"Đã hoàn thành"}}
+                                	@endif
+                                </td>
+
+                                <td>{{$bll->updated_at}}</td>
                                 <td class="center">
-                                    <a class="delete" href="admin/tintuc/xoa/{{$tt->id}}" style="list-style: none;"><button type="button" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Xoá"><i class="fa fa-trash-o"></i>
-                                    </button></a>
-                                    <a href="admin/tintuc/sua/{{$tt->id}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Sửa" aria-describedby="tooltip478219"><i class="fa fa-pencil"></i></a>
+                                    <a class="delete" href="admin/bills/xoa/{{$bll->id}}" style="list-style: none;"><i class="fa fa-trash-o" title="Xóa"></i>
+                                    </a>
+                                    <a href="admin/bills/sua/{{$bll->id}}" data-toggle="tooltip"><i class="fa fa-pencil" title="Cập nhật"></i></a>
+                                    <a href="admin/billdetail/billdetail_idbill/{{$bll->id}}" ><i class="fa fa-eye" title="Chi tiết"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -54,14 +67,16 @@
                     </table>
                 </div>
                 <!-- /.table-responsive -->
-
+				
             </div>
             <!-- /.panel-body -->
+
         </div>
         <!-- /.panel -->
     </div>
     <!-- /.col-lg-12 -->
 </div>
+<div>{{$bill->links()}}</div>
 <!-- /.row -->
 
 <!-- /.row -->
