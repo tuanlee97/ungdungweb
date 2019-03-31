@@ -1,11 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Slide;
 use App\Product;
 use App\ProductType;
 use App\TinTuc;
 use App\Cart;
+use App\Bill;
+use App\BillDetail;
 use Illuminate\Http\Request;
 use Session;
 class PageController extends Controller
@@ -15,6 +16,11 @@ class PageController extends Controller
       $new_product = Product::Where('new',1)->get();
       $new_product_type = ProductType::all();
     	return view('page.home',compact('slide','new_product','new_product_type'));
+    }
+    public function getSearch(Request $req){
+      $product_type = ProductType::all();
+      $product = Product::Where('name','like','%'.$req->key.'%')->get();
+        return view('page.search',compact('product','product_type'));
     }
     public function getProducttype($type){
       $namept = ProductType::Where('id',$type)->get('name');
@@ -46,7 +52,38 @@ class PageController extends Controller
       $req->session()->put('cart',$cart);
       return redirect()->back();
     }
-         public function getContact(){
+    public function getDelCart ($id)
+    {
+      $oldCart =Session::has('cart')?Session::get('cart'):null;
+      $cart=new Cart($oldCart);
+      $cart->removeItem($id);
+      Session::put('cart',$cart);
+      return redirect()->back();
+    }
+      public function getcheckOut(){
+        return view('page.checkout');
+    }
+    public function postcheckOut(Request $request){
+      $cart=Session::get('cart');
+        $bill=new Bill;
+        $bill->id_customer = '21';
+        $bill->date_order = date('Y-m-d');
+        $bill->total = $cart->totalPrice;
+        //$bill->payment = $req->totalPrice;
+        //$bill->note = $req->totalPrice;
+        $bill->save();
+        foreach ($cart->items as $key => $value) {
+          $bill_detail= new BillDetail;
+          $bill_detail->id_bill=$bill->id;
+          $bill_detail->id_product=$key;
+          $bill_detail->quantity=$value['qty'];
+          $bill_detail->unit_price=$value['price']/$value['qty'];
+          $bill_detail->save();
+        }
+        Session::forget('cart');
+        return redirect('cart');
+    }
+    public function getContact(){
     	return view('page.contact');
     }
           public function getBlog(){
@@ -58,5 +95,11 @@ class PageController extends Controller
                $otherblog = TinTuc::Where('id','<>',$req->id)->paginate(3);
     	return view('page.blogdetails',compact('blog','otherblog'));
     }
+    public function getTest()
+    {
+
+      return view('page.test');
+    }
+
 }
 

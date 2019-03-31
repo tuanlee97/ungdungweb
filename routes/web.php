@@ -44,51 +44,86 @@ Route::get('blog',
         'uses'=>'PageController@getBlog'
     ]
 );
-<<<<<<< HEAD
+
 Route::get('blog-details/{id}',
 [
     'as'=>'blogdetails',
     'uses'=>'PageController@getBlogdetails'
 ]
-=======
-Route::get('blog-details',
-    [
-        'as'=>'blogdetails',
-        'uses'=>'PageController@getBlogdetails'
-    ]
->>>>>>> c67a1ada01be40a9946a1370e1335cdd0e0ecbf9
 );
+
 Route::get('cart',
     [
         'as'=>'cart',
         'uses'=>'PageController@getCart'
     ]
 );
-<<<<<<< HEAD
+Route::get('delete-cart/{id}',
+    [
+        'as'=>'deletecart',
+        'uses'=>'PageController@getDelCart'
+    ]
+);
 Route::get('add-to-cart/{id}',
 [
     'as'=>'addcart',
     'uses'=>'PageController@getaddtoCart'
 ]
 );
+Route::get('checkout',
+    [
+        'as'=>'checkout',
+        'uses'=>'PageController@getcheckOut'
+    ]
+);
+Route::post('savecheckout',
+    [
+        'as'=>'savecheckout',
+        'uses'=>'PageController@postcheckOut'
+    ]
+);
 Route::get('product-details/{id}',
 [
     'as'=>'productdetails',
     'uses'=>'PageController@getProductdetails'
 ]
-=======
-Route::get('product-details',
-    [
-        'as'=>'productdetails',
-        'uses'=>'PageController@getProductdetails'
-    ]
->>>>>>> c67a1ada01be40a9946a1370e1335cdd0e0ecbf9
 );
+
 Route::get('contact',
     [
         'as'=>'contact',
         'uses'=>'PageController@getContact'
     ]
+);
+Route::get('register',
+    [
+        'as'=>'register',
+        'uses'=>'CustomerController@getRegister'
+    ]
+);
+Route::post('register',
+    [
+        'as'=>'register',
+        'uses'=>'CustomerController@postRegister'
+    ]
+);
+Route::get('login',
+    [
+        'as'=>'login',
+        'uses'=>'CustomerController@getlogin'
+    ]
+);
+Route::post('login',
+    [
+        'as'=>'login',
+        'uses'=>'CustomerController@postlogin'
+    ]
+);
+Route::get('search',
+[
+    'as'=> 'search',
+    'uses'=> 'PageController@getSearch'
+]
 );
 
 Route::get('admin/dangnhap','UserController@getloginAdmin');
@@ -131,5 +166,21 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
         Route::post('them','UserController@postThem');
 
         Route::get('xoa/{id}','UserController@getXoa');
+    });
+    Route::group(['prefix'=>'bills'],function(){
+        Route::get('danhsach','BillController@getDanhSach');
+
+        Route::get('sua/{id}','BillController@getSua');
+        Route::post('sua/{id}','BillController@postSua');
+
+        Route::get('xoa/{id}','BillController@delBill');
+    });
+    Route::group(['prefix'=>'billdetail'], function(){
+        Route::get('danhsach','BillDetailController@getDanhSach');
+        //Route::get('chitiet','BillDetailController@getDanhSach');
+        Route::get('billdetail_idbill','BillDetailController@getDetail');
+    });
+    Route::group(['prefix'=>'customer'],function(){
+        Route::get('danhsach','CustomerController@getCustomer');
     });
 });

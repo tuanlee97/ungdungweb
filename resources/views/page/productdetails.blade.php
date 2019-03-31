@@ -64,7 +64,7 @@
 
 								<div class="product_price">${{$sanpham->unit_price}}</div>
 								<div class="button_container">
-									<button type="button" class="button cart_button"><a href="{{route('home')}}">Add to Cart</a>></button>
+									<button type="button" class="button cart_button"><a href="{{route('addcart',$sanpham->id)}}">Add to Cart</a>></button>
 									<div class="product_fav"><i class="fas fa-heart"></i></div>
 								</div>
 								

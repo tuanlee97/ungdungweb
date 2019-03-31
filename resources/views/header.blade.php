@@ -16,8 +16,8 @@
 							</div>
 							<div class="top_bar_user">
 								<div class="user_icon"><img src="source/images/user.svg" alt=""></div>
-								<div><a href="#">Register</a></div>
-								<div><a href="#">Sign in</a></div>
+								<div><a href="{{ route('register') }}">Register</a></div>
+								<div><a href="{{ route('login') }}">Sign in</a></div>
 							</div>
 						</div>
 					</div>
@@ -43,17 +43,14 @@
 						<div class="header_search">
 							<div class="header_search_content">
 								<div class="header_search_form_container">
-									<form action="#" class="header_search_form clearfix">
-										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+									<form action="{{route('search')}}" class="header_search_form clearfix">
+										<input type="search" required="required" class="header_search_input" placeholder="Search for products..." name="key">
 										<div class="custom_dropdown">
 											<div class="custom_dropdown_list">
-												<span class="custom_dropdown_placeholder clc">All Categories</span>
-												<i class="fas fa-chevron-down"></i>
+												<span class="custom_dropdown_placeholder clc"></span>
+												
 												<ul class="custom_list clc">
-													<li><a class="clc" href="#">All Categories</a></li>
-													@foreach($loai_sp as $loai)
-													<li><a class="clc" href="{{route('producttype',$loai->id)}}">{{$loai->name}}</a></li>
-													@endforeach
+													
 												</ul>
 											</div>
 										</div>
