@@ -3,7 +3,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Tin Tức</h1>
+            <h1 class="page-header">Chi Tiết Đơn Hàng</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -26,27 +26,31 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Title</th>
-                                <th>Content</th>
-                                <th>Image</th>
-                                <th>Create_at</th>
+                                <th>ID Bill</th>
+                                <th>ID Product</th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Create At</th>
+                                <th>Update At</th>
                                 <th>Action</th>
 
 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($tintuc as $tt)
+                            @foreach($billdetail as $blldetail)
                             <tr class="odd gradeX" >
-                                <td>{{$tt->id}}</td>
-                                <td>{{$tt->title}}</td>
-                                <td>{{$tt->content}}</td>
-                                <td><img width="150px" src="source/images/{{$tt->image}}" class="img-responsive" alt="Image"></td>
-                                <td>{{$tt->create_at}}</td>
+                                <td>{{$blldetail->id}}</td>
+                                <td>{{$blldetail->id_bill}}</td>
+                                <td>{{$blldetail->id_product}}</td>
+                                <td>{{$blldetail->quantity}}</td>
+                                <td>{{$blldetail->unit_price}}</td>
+                                <td>{{$blldetail->created_at}}</td>
+                                <td>{{$blldetail->updated_at}}</td>
                                 <td class="center">
-                                    <a class="delete" href="admin/tintuc/xoa/{{$tt->id}}" style="list-style: none;"><button type="button" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Xoá"><i class="fa fa-trash-o"></i>
+                                    <a class="delete" href="admin/bills/xoa/{{$blldetail->id}}" style="list-style: none;"><button type="button" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Xoá"><i class="fa fa-trash-o"></i>
                                     </button></a>
-                                    <a href="admin/tintuc/sua/{{$tt->id}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Sửa" aria-describedby="tooltip478219"><i class="fa fa-pencil"></i></a>
+                                    <a href="admin/bills/sua/{{$blldetail->id}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Sửa" aria-describedby="tooltip478219"><i class="fa fa-pencil"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -54,21 +58,16 @@
                     </table>
                 </div>
                 <!-- /.table-responsive -->
-
+				
             </div>
             <!-- /.panel-body -->
+
         </div>
         <!-- /.panel -->
     </div>
     <!-- /.col-lg-12 -->
 </div>
-<!-- /.row -->
-
-<!-- /.row -->
-
-<!-- /.row -->
-
-<!-- /.row -->
+<div class=" col-12">{{$billdetail->links()}}</div>
 </div>
 
 @endsection

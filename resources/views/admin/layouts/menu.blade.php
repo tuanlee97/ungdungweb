@@ -41,6 +41,15 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i>Quản Lí Customer<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="admin/customer/danhsach">Danh Sách Customer</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>Quản Lí Products_Type<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -48,6 +57,18 @@
                                 </li>
                                 <li>
                                     <a href="admin/typeproducts/them">Thêm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i>Quản Lí Hóa Đơn<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="admin/bills/danhsach">Danh Sách</a>
+                                </li>
+                                <li>
+                                    <a href="admin/billdetail/danhsach">Chi Tiết Hóa Đơn</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

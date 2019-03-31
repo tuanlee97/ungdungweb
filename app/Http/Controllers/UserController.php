@@ -119,9 +119,12 @@ class UserController extends Controller
                 'password.max'=>'Mật khẩu không được lớn hơn 32 kí tự'
 
         ]);
-        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password]))
+        $login=['email'=>$request->email,'password'=>$request->password];
+        if(Auth::attempt($login))
         {
+
             return redirect('admin/tintuc/danhsach');
+            //return redirect()->intended('admin/tintuc/danhsach');
         }
         else
         {

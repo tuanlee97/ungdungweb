@@ -28,13 +28,27 @@ class AppServiceProvider extends ServiceProvider
             $loai_sp= ProductType::all();
             $view->with('loai_sp',$loai_sp);
         });
-         view()->composer('header',function($view){
+         view()->composer('*',function($view){
                if(Session ('cart')){
                 $oldCart = Session::get('cart');
                 $cart = new Cart($oldCart);
                 $view->with(['cart'=>Session::get('cart'),'product_cart'=>$cart->items,'totalPrice'=>$cart->totalPrice,'totalQty'=>$cart->totalQty]);
             }
          });
+         // view()->composer('page.cart',function($view){
+         //       if(Session ('cart')){
+         //        $oldCart = Session::get('cart');
+         //        $cart = new Cart($oldCart);
+         //        $view->with(['cart'=>Session::get('cart'),'product_cart'=>$cart->items,'totalPrice'=>$cart->totalPrice,'totalQty'=>$cart->totalQty]);
+         //    }
+         // });
+         // view()->composer('page.checkout',function($view){
+         //       if(Session ('cart')){
+         //        $oldCart = Session::get('cart');
+         //        $cart = new Cart($oldCart);
+         //        $view->with(['cart'=>Session::get('cart'),'product_cart'=>$cart->items,'totalPrice'=>$cart->totalPrice,'totalQty'=>$cart->totalQty]);
+         //    }
+         // });
     
 }
 }
