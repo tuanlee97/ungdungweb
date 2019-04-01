@@ -41,7 +41,7 @@
                                 <td>{{$tt->id}}</td>
                                 <td>{{$tt->title}}</td>
                                 <td>{{$tt->content}}</td>
-                                <td><img width="150px" src="source/images/{{$tt->image}}" class="img-responsive" alt="Image"></td>
+                                <td><img width="250px" src="source/images/tintuc/{{$tt->image}}" class="img-responsive" alt="Image"></td>
                                 <td>{{$tt->create_at}}</td>
                                 <td class="center">
                                     <a class="delete" href="admin/tintuc/xoa/{{$tt->id}}" style="list-style: none;"><button type="button" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Xoá"><i class="fa fa-trash-o"></i>
