@@ -1,4 +1,4 @@
-
+﻿
 <div class="navbar-default navbar-static-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
@@ -28,7 +28,19 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                         <li>
+<li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i>Quản Lí Product<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="admin/product/ds">Danh Sách</a>
+                                </li>
+                                <li>
+                                    <a href="admin/product/add">Thêm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>                         
+<li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i>Quản Lí User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>

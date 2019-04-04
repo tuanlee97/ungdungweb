@@ -183,4 +183,12 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
     Route::group(['prefix'=>'customer'],function(){
         Route::get('danhsach','CustomerController@getCustomer');
     });
+    Route::group(['prefix'=>'product'],function(){
+        Route::get('ds','productController@getds');
+        Route::get('add','productController@getadd');
+        Route::get('change/{id}','productController@getchange');
+        Route::post('add','productController@xulyadd');
+        Route::post('change/{id}','productController@xylychange');
+        Route::get('del/{id}','productController@xulydel');
+    });
 });
