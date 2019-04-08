@@ -28,21 +28,32 @@
                 @endif
                 <form action="admin/typeproducts/sua/{{$typeproducts->id}}" method="POST" enctype="multipart/form-data"> <!-- Form bắt buộc phải có thuộc tính enctype thì mới up được file lên -->
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                       <fieldset>
+                    <div class="form-group">
+                    
+                        <p><label>Loại sản phẩm</label></p>
+
+                        <input type="text" class="form-control input-width" name="name" placeholder="Nhập Tên loại" value="{{$typeproducts->name}}" />
+                    </div>
+                    <div class="form-group">
+                        <p><label>Mô tả</label></p>
+                        <input type="text" class="form-control input-width" name="description" placeholder="Nhập nội dung" value="{{$typeproducts->description}}" />
+                    </div>
 
                     <div class="form-group">
-                        <p><label>Loại sản phẩm</label></p>
-                        <input type="text" class="form-control input-width" name="name" placeholder="Nhập Tên loại" value="{{$typeproducts->name}}" />
-                        <p><label></label></p>
-                        <input type="text" class="form-control input-width" name="description" placeholder="Nhập nội dung" value="{{$typeproducts->description}}" />
                         <p><label>Hình</label></p>
-                        <input type="file" name="image"  class="form-control" value="">
+
+            
+                        <img width="320px" src="source/images/category/{{$typeproducts->image}}" alt="">
+                        <input type="file" name="image"  value="">
                     </div>
 
 
 
                     <button type="submit" class="btn btn-default">Cập nhật</button>
                     <button type="reset" class="btn btn-default btn-mleft">Nhập Lại</button>
-                    <form>
+                </fieldset>
+                    </form>
                     </div>
                 </div>
                 <!-- /.row -->

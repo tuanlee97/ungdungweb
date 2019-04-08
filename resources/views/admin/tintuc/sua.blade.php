@@ -1,15 +1,15 @@
 @extends('admin.layouts.index')
 
 @section('content')
-
-<div class="container">
+<div id="page-wrapper">
+    <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <div class="login-panel panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Sửa Tin Tức</h3>
-                        </div>
-                        <div class="panel-body">
+                 <div class="col-lg-12">
+                     <h1 class="page-header">Tin Tức
+                    <small> Sửa</small>
+                    </h1>
+                </div>
+                        <div class="col-lg-7" style="padding-bottom:120px">
                             @if(count($errors)>0)
                             <div class="alert alert-danger">
                                     @foreach($errors->all() as $err)
@@ -29,21 +29,19 @@
                                 <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
                                 <fieldset>
                                     <div class="form-group">
-<<<<<<< HEAD
-                                       ID<input class="form-control" placeholder="" name="id" disabled="disabled" type="text" value="{{$tintuc->id}}" autofocus>
-=======
-                                       ID<input disabled="disabled" class="form-control" placeholder="" name="id" type="text" value="{{$tintuc->id}}" autofocus>
->>>>>>> c67a1ada01be40a9946a1370e1335cdd0e0ecbf9
+                                       <label>ID</label><input disabled="disabled" class="form-control" placeholder="" name="id" type="text" value="{{$tintuc->id}}" autofocus>
+
                                     </div>
                                     <div class="form-group">
-                                        Title<input class="form-control" placeholder="" name="title" type="text" value="{{$tintuc->title}}">
+                                        <label>Title</label><input class="form-control" placeholder="" name="title" type="text" value="{{$tintuc->title}}">
                                     </div>
                                      <div class="form-group">
-                                        Content<input class="form-control" placeholder="" name="content" type="text" value="{{$tintuc->content}}">
+                                        <label>Content</label><textarea id="demo" class="ckeditor" name="content">{{$tintuc->content}}</textarea>
                                     </div>
+                                     <label>Images</label>
                                      <div class="form-group">
-                                        <img width="320px" src="image/tintuc/{{$tintuc->image}}" alt="">
-                                       Image<input type="file" name="image">
+                                        <img width="320px" src="source/images/tintuc/{{$tintuc->image}}" alt="">
+                                      <input type="file" name="image">
                                     </div>
                                     {{-- <div class="form-group">
                                         Create_AT<input type="date" name="create_at" value="{{$tintuc->create_at}}">

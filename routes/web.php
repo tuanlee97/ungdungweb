@@ -21,10 +21,10 @@ Route::get('index',
     ]
 );
 Route::get('product-type/{type}',
-[
-    'as'=>'producttype',
-    'uses'=>'PageController@getProducttype'
-]
+    [
+        'as'=>'producttype',
+        'uses'=>'PageController@getProducttype'
+    ]
 );
 Route::get('shop',
     [
@@ -44,45 +44,73 @@ Route::get('blog',
         'uses'=>'PageController@getBlog'
     ]
 );
-<<<<<<< HEAD
+
 Route::get('blog-details/{id}',
-[
-    'as'=>'blogdetails',
-    'uses'=>'PageController@getBlogdetails'
-]
-=======
-Route::get('blog-details',
     [
         'as'=>'blogdetails',
         'uses'=>'PageController@getBlogdetails'
     ]
->>>>>>> c67a1ada01be40a9946a1370e1335cdd0e0ecbf9
 );
+
 Route::get('cart',
     [
         'as'=>'cart',
         'uses'=>'PageController@getCart'
     ]
 );
-<<<<<<< HEAD
-Route::get('add-to-cart/{id}',
-[
-    'as'=>'addcart',
-    'uses'=>'PageController@getaddtoCart'
-]
+Route::get('updatecart',
+    [
+        'as'=>'updatecart',
+        'uses'=>'PageController@getupdateCart'
+    ]
 );
+Route::get('reducecart/{id}',
+    [
+        'as'=>'reducecart',
+        'uses'=>'PageController@getreduceCart'
+    ]
+);
+Route::get('delete-cart/{id}',
+    [
+        'as'=>'deletecart',
+        'uses'=>'PageController@getDelCart'
+    ]
+);
+Route::get('add-to-cart/{id}',
+    [
+        'as'=>'addcart',
+        'uses'=>'PageController@getaddtoCart'
+    ]
+);
+Route::get('add-to-cart2/{id}',
+    [
+        'as'=>'addcart2',
+        'uses'=>'PageController@getaddtoCart2'
+    ]
+);
+Route::get('checkout',
+    [
+        'as'=>'checkout',
+        'uses'=>'PageController@getcheckOut'
+    ]
+)->middleware('userLogin');
+Route::post('savecheckout',
+    [
+        'as'=>'savecheckout',
+        'uses'=>'PageController@postcheckOut'
+    ]
+)->middleware('userLogin');
 Route::get('product-details/{id}',
-[
-    'as'=>'productdetails',
-    'uses'=>'PageController@getProductdetails'
-]
-=======
-Route::get('product-details',
     [
         'as'=>'productdetails',
         'uses'=>'PageController@getProductdetails'
     ]
->>>>>>> c67a1ada01be40a9946a1370e1335cdd0e0ecbf9
+);
+Route::get('search',
+[
+    'as'=> 'search',
+    'uses'=> 'PageController@getSearch'
+]
 );
 Route::get('contact',
     [
@@ -90,11 +118,52 @@ Route::get('contact',
         'uses'=>'PageController@getContact'
     ]
 );
+Route::get('dangky',
+    [
+        'as'=>'dangky',
+        'uses'=>'CustomerController@getRegister'
+    ]
+);
+Route::post('dangky',
+    [
+        'as'=>'dangky',
+        'uses'=>'CustomerController@postRegister'
+    ]
+);
+Route::get('dangnhap',
+    [
+        'as'=>'dangnhap',
+        'uses'=>'CustomerController@getlogin'
+    ]
+);
+Route::post('dangnhap',
+    [
+        'as'=>'dangnhap',
+        'uses'=>'CustomerController@postlogin'
+    ]
+);
+Route::get('taikhoan',
+    [
+        'as'=>'taikhoan',
+        'uses'=>'CustomerController@gettaikhoan'
+    ]
+);
+Route::get('donhang/{id}',
+    [
+        'as'=>'donhang',
+        'uses'=>'BillController@getdonhang'
+    ]
+);
+Route::get('dangxuat','CustomerController@getdangxuat');
 
-Route::get('admin/dangnhap','UserController@getloginAdmin');
-Route::post('admin/dangnhap','UserController@postloginAdmin');
 
 Route::get('admin/dangxuat','UserController@getlogoutAdmin');
+
+    Route::group(['prefix'=>'admin'],function(){
+        Route::get('dangnhap','UserController@getloginAdmin');
+        Route::post('dangnhap','UserController@postloginAdmin');
+    });
+
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
     Route::group(['prefix'=>'typeproducts'],function(){
         //admin/typeproducts/
@@ -132,4 +201,44 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
         Route::get('xoa/{id}','UserController@getXoa');
     });
+    Route::group(['prefix'=>'bills'],function(){
+        Route::get('danhsach','BillController@getDanhSach');
+
+        Route::get('sua/{id}','BillController@getSua');
+        Route::post('sua/{id}','BillController@postSua');
+
+        Route::get('xoa/{id}','BillController@delBill');
+        Route::get('search','BillController@getSearch');
+    });
+    Route::group(['prefix'=>'billdetail'], function(){
+        Route::get('danhsach','BillDetailController@getDanhSach');
+        //Route::get('chitiet','BillDetailController@getDanhSach');
+        Route::get('billdetail_idbill/{id1}','BillDetailController@getDetail');
+    });
+
+    Route::group(['prefix'=>'products'],function(){
+        Route::get('ds','productsController@getds');
+        
+        Route::get('add','productsController@getadd');
+        Route::get('change/{id}','productsController@getchange');
+        Route::post('add','productsController@xulyadd');
+        Route::post('change/{id}','productsController@xylychange');
+        Route::get('del/{id}','productsController@xulydel');
+    });
+Route::group(['prefix'=>'customer'],function(){
+        //admin/typeproducts/
+        Route::get('danhsach','CustomerController@getCustomer');
+
+               Route::get('sua/{id}','CustomerController@getSua');
+
+        
+
+        Route::post('sua/{id}','CustomerController@XuLySua');
+
+        Route::get('xoa/{id}','CustomerController@XuLyXoa');
+    });
+
+    
 });
+//Auth::routes();
+//Route::get('/home', 'HomeController@index')->name('home');

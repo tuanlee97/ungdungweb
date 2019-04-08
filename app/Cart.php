@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Session;
 class Cart
 {
 	public $items = null;
@@ -24,25 +24,45 @@ class Cart
 			}
 		}
 		$giohang['qty']++;
-		$giohang['price'] = $item->unit_price * $giohang['qty'];
+		if($item->promotion_price > 0)
+				$giohang['price'] = $item->promotion_price * $giohang['qty'];
+		else 	$giohang['price'] = $item->unit_price * $giohang['qty'];
+		
 		$this->items[$id] = $giohang;
 		$this->totalQty++;
-		$this->totalPrice += $item->unit_price;
+		if($item->promotion_price > 0)
+				$this->totalPrice += $item->promotion_price;
+		else 	$this->totalPrice += $item->unit_price;
+
+		
 	}
 	//xóa 1
 	public function reduceByOne($id){
 		$this->items[$id]['qty']--;
-		$this->items[$id]['price'] -= $this->items[$id]['item']['price'];
+		if($this->items[$id]['item']['promotion_price'] > 0)
+			$this->items[$id]['price'] -= $this->items[$id]['item']['promotion_price'];
+		else $this->items[$id]['price'] -= $this->items[$id]['item']['unit_price'];
 		$this->totalQty--;
-		$this->totalPrice -= $this->items[$id]['item']['price'];
+
+
+		if($this->items[$id]['item']['promotion_price'] > 0)
+			$this->totalPrice  -= $this->items[$id]['item']['promotion_price'];
+		else $this->totalPrice  -= $this->items[$id]['item']['unit_price'];
+		
 		if($this->items[$id]['qty']<=0){
 			unset($this->items[$id]);
 		}
+		
 	}
 	//xóa nhiều
 	public function removeItem($id){
 		$this->totalQty -= $this->items[$id]['qty'];
 		$this->totalPrice -= $this->items[$id]['price'];
 		unset($this->items[$id]);
+		
+	
+			
+			
+		
 	}
 }

@@ -14,11 +14,25 @@
 								
 								</ul>
 							</div>
+								@if(Auth::guard('customer')->check())
+							<div class="btn-group" style="padding-top: 10px">
+								<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									{{Auth::guard('customer')->user()->name}}
+								</button>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="taikhoan">Tài khoản</a>
+									<a class="dropdown-item" href="donhang/{{Auth::guard('customer')->user()->id }}}">Đơn hàng</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="dangxuat">Đăng Xuất</a>
+								</div>
+							</div>
+							@else
 							<div class="top_bar_user">
 								<div class="user_icon"><img src="source/images/user.svg" alt=""></div>
-								<div><a href="#">Register</a></div>
-								<div><a href="#">Sign in</a></div>
+								<div><a href="{{ route('dangky') }}">Register</a></div>
+								<div><a href="{{ route('dangnhap') }}">Sign in</a></div>
 							</div>
+								@endif
 						</div>
 					</div>
 				</div>
@@ -43,17 +57,14 @@
 						<div class="header_search">
 							<div class="header_search_content">
 								<div class="header_search_form_container">
-									<form action="#" class="header_search_form clearfix">
-										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+									<form action="{{route('search')}}" class="header_search_form clearfix">
+										<input type="search" required="required" class="header_search_input" placeholder="Search for products..." name="key">
 										<div class="custom_dropdown">
 											<div class="custom_dropdown_list">
-												<span class="custom_dropdown_placeholder clc">All Categories</span>
-												<i class="fas fa-chevron-down"></i>
+												<span class="custom_dropdown_placeholder clc"></span>
+												
 												<ul class="custom_list clc">
-													<li><a class="clc" href="#">All Categories</a></li>
-													@foreach($loai_sp as $loai)
-													<li><a class="clc" href="{{route('producttype',$loai->id)}}">{{$loai->name}}</a></li>
-													@endforeach
+													
 												</ul>
 											</div>
 										</div>
@@ -93,9 +104,9 @@
 										<div class="cart_text"><a href="{{route('cart')}}">Cart</a></div>
 										<div class="cart_price">
 												@if(Session::has('cart'))
-												{{Session('cart')->totalPrice}} $
-											@else 0 $
-											@endif
+									{{$totalPrice}} $ 
+									
+								@endif
 											
 										</div>
 									</div>

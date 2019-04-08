@@ -43,9 +43,13 @@ public function postSua(Request $request,$id){
   if($request->hasFile('image'))
   {
       $file = $request->file('image');
-
+      $duoi = $file->getClientOriginalExtension();
+            if($duoi != 'jpg' && $duoi != 'png' && $duoi != 'jpeg')
+            {
+                return redirect('admin/tintuc/sua/'.$id)->with('thongbao','Bạn chọn sai định dạng file');
+            }
       $name = $file->getClientOriginalName();
-      $hinhanh = " ".$name;
+      $hinhanh = "".$name;
       $file->move("source/images/tintuc",$hinhanh);
       $tintuc->image = $hinhanh;
 
@@ -79,10 +83,16 @@ public function postThem(Request $request){
    $tintuc->content = $request->content;
    if($request->hasFile('image'))
    {
-      $file = $request->file('image');
 
+      $file = $request->file('image');
+      $duoi = $file->getClientOriginalExtension();
+            if($duoi != 'jpg' && $duoi != 'png' && $duoi != 'jpeg')
+            {
+                return redirect('admin/tintuc/them')->with('thongbao','Bạn chọn sai định dạng file');
+            }
+           
       $name = $file->getClientOriginalName();
-      $hinhanh = " ".$name;
+      $hinhanh = "".$name;
       $file->move("source/images/tintuc",$hinhanh);
       $tintuc->image = $hinhanh;
 

@@ -79,6 +79,7 @@
     <script type="text/javascript" language="javascript" src="admin_asset/ckeditor/ckeditor.js" ></script>
     --}}
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script type="text/javascript" language="javascript" src="admin_asset/ckeditor/ckeditor.js" ></script>
     <script src="admin_asset/js/jquery-1.10.2.js"></script>
     <script src="admin_asset/js/bootstrap.min.js"></script>
     <script src="admin_asset/js/plugins/metisMenu/jquery.metisMenu.js"></script>

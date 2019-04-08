@@ -1,11 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Slide;
 use App\Product;
 use App\ProductType;
 use App\TinTuc;
 use App\Cart;
+use App\Bill;
+use App\BillDetail;
 use Illuminate\Http\Request;
 use Session;
 class PageController extends Controller
@@ -36,6 +37,7 @@ class PageController extends Controller
     	return view('page.productdetails',compact('sanpham','namept'));
     }
       public function getCart(){
+
     	return view('page.cart');
     }
      public function getaddtoCart(Request $req,$id){
@@ -44,9 +46,69 @@ class PageController extends Controller
       $cart = new Cart($oldCart);
       $cart->add($product,$id);
       $req->session()->put('cart',$cart);
+      return redirect('shop');
+    }
+    public function getaddtoCart2(Request $req,$id){
+      $product = Product::find($id);
+      $oldCart = Session('cart')?Session::get('cart'):null;
+      $cart = new Cart($oldCart);
+      $cart->add($product,$id);
+      $req->session()->put('cart',$cart);
       return redirect()->back();
     }
-         public function getContact(){
+public function getSearch(Request $req){
+      $product_type = ProductType::all();
+      $product = Product::Where('name','like','%'.$req->key.'%')->get();
+        return view('page.search',compact('product','product_type'));
+    }
+    public function getreduceCart(Request $request, $id){
+      $oldCart = Session('cart')?Session::get('cart'):null;
+      $cart = new Cart($oldCart);
+      $cart->reduceByOne($id);
+      Session::put('cart',$cart);
+      if(Session('cart')->totalQty == 0)
+        session()->forget('cart');
+      return redirect()->back();
+    }
+    public function getDelCart ($id)
+    {
+      $oldCart =Session::has('cart')?Session::get('cart'):null;
+      $cart=new Cart($oldCart);
+      $cart->removeItem($id);
+      Session::put('cart',$cart);
+      if(Session('cart')->totalQty == 0)
+        session()->forget('cart');
+      return redirect()->back();
+    }
+      public function getcheckOut(){
+        return view('page.checkout');
+    }
+    public function postcheckOut(Request $request){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $date= date('Y-m-d H:i:s');
+        $cart=Session::get('cart');
+        $bill=new Bill;
+        $bill->id_customer = $request->id;
+        $bill->date_order = date('Y-m-d');
+        $bill->total = $cart->totalPrice;
+        $bill->note = $request->note;
+        $bill->status =0;
+        $bill->created_at=$date;
+        $bill->save();
+        foreach ($cart->items as $key => $value) {
+          $bill_detail= new BillDetail;
+          $bill_detail->id_bill=$bill->id;
+          $bill_detail->id_product=$key;
+          $bill_detail->quantity=$value['qty'];
+          $bill_detail->unit_price=$value['price']/$value['qty'];
+          $bill_detail->created_at=$date;
+          $bill_detail->save();
+        }
+        Session::forget('cart');
+         alert('Đặt hàng thành công');
+        return redirect('cart');
+    }
+    public function getContact(){
     	return view('page.contact');
     }
           public function getBlog(){
@@ -57,6 +119,11 @@ class PageController extends Controller
              $blog = TinTuc::Where('id',$req->id)->first();
                $otherblog = TinTuc::Where('id','<>',$req->id)->paginate(3);
     	return view('page.blogdetails',compact('blog','otherblog'));
+    }
+    public function getTest()
+    {
+
+      return view('page.test');
     }
 }
 

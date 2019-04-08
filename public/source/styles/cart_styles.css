@@ -1241,7 +1241,7 @@ select option
 .cart_item_image
 {
 	width: 133px;
-	height: 133px;
+	/*height: 133px;*/
 	float: left;
 }
 .cart_item_image img
@@ -1253,21 +1253,23 @@ select option
 	width: calc(100% - 133px);
 	float: left;
 	padding-top: 18px;
+	text-align: left;
 }
 .cart_item_name
 {
-	margin-left: 7.53%;
+	/*margin-left: 7.53%;*/
+	margin-left: 0%;
 }
 .cart_item_title
 {
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: 400;
-	color: rgba(0,0,0,0.5);
+	color: rgba(204, 10, 10, 0.5);
 }
 .cart_item_text
 {
-	font-size: 18px;
-	margin-top: 35px;
+	font-size: 14px;
+	/*margin-top: 35px;*/
 }
 .cart_item_text span
 {
@@ -1284,11 +1286,13 @@ select option
 }
 .cart_item_price
 {
-	text-align: right;
+	/*text-align: right;*/
+	text-align: left;
 }
 .cart_item_total
 {
-	text-align: right;
+	/*text-align: right;*/
+	text-align: left;
 }
 .order_total
 {

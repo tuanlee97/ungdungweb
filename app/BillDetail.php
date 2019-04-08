@@ -1,4 +1,4 @@
-php artisan key:generate<?php
+<?php
 
 namespace App;
 
@@ -13,4 +13,5 @@ class BillDetail extends Model
     public function bill(){
     	return $this->belongsTo('App\Bill','id_bill','id');
     }
+     public $timestamps = false;
 }
