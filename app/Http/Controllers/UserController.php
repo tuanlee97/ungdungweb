@@ -123,13 +123,16 @@ class UserController extends Controller
         if(Auth::attempt($login))
         {
 
-            return redirect('admin/tintuc/danhsach');
+            return redirect('admin/trangchu');
             //return redirect()->intended('admin/tintuc/danhsach');
         }
         else
         {
             return redirect('admin/dangnhap')->with('thongbao','Đăng nhập thất bại');
         }
+    }
+    public function gettrangchu(){
+        return view('admin/trangchu');
     }
     public function getlogoutAdmin()
     {

@@ -143,14 +143,25 @@ Route::get('taikhoan',
         'uses'=>'CustomerController@gettaikhoan'
     ]
 );
+Route::post('taikhoan/{id}',
+    [
+        'as'=>'taikhoan',
+        'uses'=>'CustomerController@postCapnhat'
+    ]
+);
 Route::get('donhang/{id}',
     [
         'as'=>'donhang',
         'uses'=>'BillController@getdonhang'
     ]
 );
+Route::get('donhang/chitiet/{id}',
+    [
+        'as'=>'chitietdonhang',
+        'uses'=>'BillController@getChitietdonhang'
+    ]
+);
 Route::get('dangxuat','CustomerController@getdangxuat');
-
 
 Route::get('admin/dangxuat','UserController@getlogoutAdmin');
 
@@ -160,6 +171,7 @@ Route::get('admin/dangxuat','UserController@getlogoutAdmin');
     });
 
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
+    Route::get('trangchu','UserController@gettrangchu');
     Route::group(['prefix'=>'typeproducts'],function(){
         //admin/typeproducts/
         Route::get('danhsach','TypeProductsController@getDanhSach');
