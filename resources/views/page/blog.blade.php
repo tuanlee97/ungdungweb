@@ -27,7 +27,7 @@
 						@foreach($blog as $tintuc)
 						<!-- Blog post -->
 						<div class="blog_post">
-							<div class="blog_image" style="background-image:url(source/images/{{$tintuc->image}})"></div>
+							<div class="blog_image" style="background-image:url(source/images/tintuc/{{$tintuc->image}})"></div>
 							<div class="blog_text">{{$tintuc->title}}</div>
 							<div class="blog_button"><a href="{{route('blogdetails',$tintuc->id)}}">Continue Reading</a></div>
 						</div>

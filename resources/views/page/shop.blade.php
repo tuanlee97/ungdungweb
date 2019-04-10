@@ -86,7 +86,24 @@
 
 							
 							@foreach($product as $sanpham)
-								@if($sanpham->new == 1)
+							@if($sanpham->new == 1 && $sanpham->promotion_price>0)
+								<!-- Product Item New -->
+								<?php $discount = (($sanpham->unit_price - $sanpham->promotion_price)/ $sanpham->unit_price)*100;  ?>
+							<div class="product_item is_new product_item discount">
+								<div class="product_border"></div>
+								<div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="{{route('productdetails',$sanpham->id)}}"><img src="source/images/product/{{$sanpham->image}}" width="115" height="115"alt=""></a></div>
+								<div class="product_content">
+									<div class="product_price"><a href="{{route('productdetails',$sanpham->id)}}">${{$sanpham->promotion_price}}<span>${{$sanpham->unit_price}}</span></a></div>
+									<div class="product_name"><div><a href="{{route('productdetails',$sanpham->id)}}" tabindex="0">{{$sanpham->name}}</a></div></div>
+								</div>
+								
+								<ul class="product_marks">
+									<li class="product_mark product_new">new</li>
+									<li class="product_mark product_discount">-{{round($discount)}}%</li>
+								</ul>
+							</div>
+							@endif
+								@if($sanpham->new == 1 && $sanpham->promotion_price==0)
 								<!-- Product Item New -->
 							<div class="product_item is_new">
 								<div class="product_border"></div>
@@ -102,7 +119,7 @@
 							</div>
 							@endif
 
-							@if($sanpham->promotion_price != 0)
+							@if($sanpham->new == 0 && $sanpham->promotion_price > 0)
 							<!-- Product Item Discount -->
 							<?php $discount = (($sanpham->unit_price - $sanpham->promotion_price)/ $sanpham->unit_price)*100;  ?>
 							
@@ -113,7 +130,7 @@
 									<div class="product_price"><a href="{{route('productdetails',$sanpham->id)}}">${{$sanpham->promotion_price}}<span>${{$sanpham->unit_price}}</span></a></div>
 									<div class="product_name"><div><a href="{{route('productdetails',$sanpham->id)}}" tabindex="0">{{$sanpham->name}}</a></div></div>
 								</div>
-								<div class="product_fav"><i class="fas fa-heart"></i></div>
+								
 								<ul class="product_marks">
 									<li class="product_mark product_discount">-{{round($discount)}}%</li>
 								</ul>
@@ -128,7 +145,7 @@
 									<div class="product_price"><a href="{{route('productdetails',$sanpham->id)}}">${{$sanpham->unit_price}}</a></div>
 									<div class="product_name"><div><a href="{{route('productdetails',$sanpham->id)}}" tabindex="0">{{$sanpham->name}}</a></div></div>
 								</div>
-								<div class="product_fav"><i class="fas fa-heart"></i></div>
+								
 
 							</div>
 							@endif

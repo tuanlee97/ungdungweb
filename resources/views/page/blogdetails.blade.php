@@ -38,7 +38,7 @@
 						@foreach ( $otherblog as $other)
 						<!-- Blog post -->
 						<div class="blog_post">
-							<div class="blog_image" style="background-image:url(source/images/{{$other->image}})"></div>
+							<div class="blog_image" style="background-image:url(source/images/tintuc/{{$other->image}})"></div>
 							<div class="blog_text">{{$other->title}}</div>
 							<div class="blog_button"><a href="{{route('blogdetails',$other->id)}}">Continue Reading</a></div>
 						</div>

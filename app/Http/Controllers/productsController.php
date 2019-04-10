@@ -27,7 +27,9 @@ class productsController extends Controller
         $this->validate($request,
             [
                 'name'=>'required|unique:products,name|min:3|max:100',
-                'image'=>'required'
+                'image'=>'required',
+                'promotion_price'=>'required|min:0',
+                'unit_price'=>'required|min:0'
                 // Unique: Dữ liệu nhập vào không được trùng với dữ liệu hiện tại
                 // Cú pháp của unique:tên_bảng,tên_cột
             ],
@@ -36,7 +38,11 @@ class productsController extends Controller
                 'name.required'=>'Bạn chưa nhập Tên!',
                 'name.unique' => 'Tên đã tồn tại, vui lòng nhập lại!',
                 'name.min'=>'Tên phải gồm ít nhất 3 ký tự!',
-                'name.max'=>'Tên phải gồm tối đa 100 ký tự!'
+                'name.max'=>'Tên phải gồm tối đa 100 ký tự!',
+                'promotion_price.min'=>'Giá khuyến mãi nhỏ nhất bằng 0!',
+                'unit_price.min'=>'Giá niêm yết nhỏ nhất bằng 0!',
+                'promotion_price'=>'Bạn chưa nhập giá niêm yết!',
+                'unit_price'=>'Bạn chưa nhập giá khuyến mãi!',
             ]);
 
 
@@ -109,11 +115,8 @@ class productsController extends Controller
         $products->unit_price = $request->unit_price;
         $products->promotion_price = $request->promotion_price;
         $products->id_type=$request->id_type;
-        if($products->promotion_price>0)
-        {
-            $products->new=0;
-        }
-        else $products->new = $request->new;
+        $products->new=$request->new;
+        $products->new = $request->new;
         if($request->hasFile('image'))
         {
             $file = $request->file('image');

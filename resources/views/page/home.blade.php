@@ -130,12 +130,13 @@
 									<div class="arrivals_slider slider">
 									@foreach($new_product as $new)
 								<!-- Slider Item -->
-										<div class="arrivals_slider_item">
+								@if($new->promotion_price == 0)
+										<div class="product_item discount">
 											<div class="border_active"></div>
 											<div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
 												<div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="{{route('productdetails',$new->id)}}"><img src="source/images/product/{{$new->image}}" width="115" height="115" alt=""></a></div>
 												<div class="product_content">
-													<div class="product_price"><a href="{{route('productdetails',$new->id)}}">{{$new->unit_price}}</a></div>
+													<div class="product_price"><a href="{{route('productdetails',$new->id)}}">${{$new->unit_price}}</a></div>
 													<div class="product_name"><div><a href="{{route('productdetails',$new->id)}}">{{$new->name}}</a></div></div>
 													<div class="product_extras">
 														<div class="product_color">
@@ -146,11 +147,37 @@
 												</div>
 												
 												<ul class="product_marks">
-													<li class="product_mark product_discount"></li>
+													
 													<li class="product_mark product_new">new</li>
 												</ul>
 											</div>
 										</div>
+									@endif
+									@if($new->promotion_price > 0)
+									<?php $discount = (($new->unit_price - $new->promotion_price)/ $new->unit_price)*100;  ?>
+									<div class="product_item discount">
+											<div class="border_active"></div>
+											<div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+												<div class="product_image d-flex flex-column align-items-center justify-content-center"><a href="{{route('productdetails',$new->id)}}"><img src="source/images/product/{{$new->image}}" width="115" height="115" alt=""></a></div>
+												<div class="product_content">
+													<div class="product_price"><a href="{{route('productdetails',$new->id)}}">${{$new->promotion_price}}<span><strike>${{$new->unit_price}}</strike></span></a></div>
+													<div class="product_name"><div><a href="{{route('productdetails',$new->id)}}">{{$new->name}}</a></div></div>
+													<div class="product_extras">
+														<div class="product_color">
+															
+														</div>
+														<button class="product_cart_button"><a href="{{route('addcart',$new->id)}}">Add to Cart</a></button>
+													</div>
+												</div>
+												
+												<ul class="product_marks">
+													<li class="product_mark product_new">new</li>
+													<li class="product_mark product_discount">-{{round($discount)}}%</li>
+													
+												</ul>
+											</div>
+										</div>
+										@endif
 									@endforeach
 									
 									</div>
