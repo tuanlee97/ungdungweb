@@ -42,6 +42,9 @@ class productsController extends Controller
 
         // Thêm dữ liệu vào CSDL, ở đây 1 record dữ liệu được xem như một đối tượng (object), vì ta sử dụng Eloquent nên tất cả các bảng trong CSDL đã được ánh xạ thành Model trong Laravel. Do đó dữ liệu mới được thêm vào bằng cách tạo 1 đối tượng mới.
 
+   
+
+
         $products = new Product;
         $products->name = $request->name;
         $products->description = $request->description;
@@ -61,6 +64,7 @@ class productsController extends Controller
             $file->move("source/images/product/",$image);
             $products->image=$image;
         }
+        $products->new = 1;
         $products->save();
         return redirect('admin/products/add')->with('thongbao','Thêm Thành Công');
     }
@@ -79,15 +83,22 @@ class productsController extends Controller
         $this->validate($request,
             [
             
-                'name'=>'required|min:3|max:100'
+                'name'=>'required|min:3|max:100',
+                'promotion_price'=>'required|min:0',
+                'unit_price'=>'required|min:0'
                 // Unique: Dữ liệu nhập vào không được trùng với dữ liệu hiện tại
                 // Cú pháp của unique:tên_bảng,tên_cột
             ],
             [ 
                 'name.required'=>'Bạn chưa nhập Tên!',
+                'promotion_price'=>'Bạn chưa nhập giá niêm yết!',
+                'unit_price'=>'Bạn chưa nhập giá khuyến mãi!',
                 'name.unique' => 'Tên đã tồn tại, vui lòng nhập lại!',
                 'name.min'=>'Tên phải gồm ít nhất 3 ký tự!',
-                'name.max'=>'Tên phải gồm tối đa 100 ký tự!'
+                'name.max'=>'Tên phải gồm tối đa 100 ký tự!',
+                'promotion_price.min'=>'Giá khuyến mãi nhỏ nhất bằng 0!',
+                'unit_price.min'=>'Giá niêm yết nhỏ nhất bằng 0!',
+              
             ]);
 
 
@@ -98,6 +109,11 @@ class productsController extends Controller
         $products->unit_price = $request->unit_price;
         $products->promotion_price = $request->promotion_price;
         $products->id_type=$request->id_type;
+        if($products->promotion_price>0)
+        {
+            $products->new=0;
+        }
+        else $products->new = $request->new;
         if($request->hasFile('image'))
         {
             $file = $request->file('image');

@@ -45,6 +45,16 @@
                         <p><label>Giá khuyến mãi</label></p>
                         <input type="text" class="form-control input-width" name="promotion_price" placeholder="Giá khuyến mãi" value="{{$products->promotion_price}}" />
                     </div>
+                        <div class="form-group">
+                            <label>Tình trạng: </label>
+                            <select name="new" class="form-control input-inline" style="width: 200px">
+
+               
+                                 <option value="0"@if($products->new=='0') selected='selected' @endif >Bình thường</option>
+                                   <option value="1"@if($products->new=='1') selected='selected' @endif >Hàng mới</option>      
+                            </select>
+                           
+                        </div>
                     <div class="form-group">
                         <p><label>Loại sản phẩm</label>
                         <select name="id_type" class="form-control input-width" >
