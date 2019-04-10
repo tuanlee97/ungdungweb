@@ -27,6 +27,7 @@
 							<tr>
 								<th>ID</th>
 								<th>Tên sản phẩm</th>
+								<th>Loại sản phẩm</th>
 								<th>Chi tiết</th>
 								<th>Giá niêm yết</th>
 								<th> Giá khuyến mãi</th>
@@ -38,10 +39,17 @@
 						</thead>
 						<tbody>
 							@foreach ($products as $pro)
-
 							<tr class="odd gradeX">
 								<td>{{$pro->id}}</td>
 								<td>{{$pro->name}}</td>
+								<td>
+								@foreach($typeproduct as $tp)
+								@if($tp->id == $pro->id_type)
+								{{$tp->name}}
+								@endif
+								@endforeach
+								</td>
+								
                                 <td>{{$pro->description}}</td>
                                 <td>{{$pro->unit_price}}</td>
                                 <td>{{$pro->promotion_price}}</td>
@@ -51,7 +59,7 @@
 									</button>
 									<a href="admin/products/change/{{$pro->id}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Sửa" aria-describedby="tooltip478219"><i class="fa fa-pencil"></i></a>
 								</td>
-							</tr>
+							</tr>		
 							@endforeach
 						</tbody>
 					</table>

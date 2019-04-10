@@ -18,7 +18,7 @@
 
 				<!-- Selected Image -->
 				<div class="col-lg-5 order-lg-2 order-1">
-					<div class="image_selected"><img src="source/images/{{$sanpham->image}}" alt=""></div>
+					<div class="image_selected"><img src="source/images/product/{{$sanpham->image}}" alt=""></div>
 				</div>
 
 				<!-- Description -->

@@ -112,12 +112,7 @@ Route::get('search',
     'uses'=> 'PageController@getSearch'
 ]
 );
-Route::get('contact',
-    [
-        'as'=>'contact',
-        'uses'=>'PageController@getContact'
-    ]
-);
+
 Route::get('dangky',
     [
         'as'=>'dangky',

@@ -146,7 +146,7 @@
 														<button class="product_cart_button"><a href="{{route('addcart',$new->id)}}">Add to Cart</a></button>
 													</div>
 												</div>
-												<div class="product_fav"><i class="fas fa-heart"></i></div>
+												
 												<ul class="product_marks">
 													<li class="product_mark product_discount"></li>
 													<li class="product_mark product_new">new</li>

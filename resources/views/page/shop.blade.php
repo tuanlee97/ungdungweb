@@ -95,7 +95,7 @@
 									<div class="product_price"><a href="{{route('productdetails',$sanpham->id)}}">${{$sanpham->unit_price}}</a></div>
 									<div class="product_name"><div><a href="{{route('productdetails',$sanpham->id)}}" tabindex="0">{{$sanpham->name}}</a></div></div>
 								</div>
-								<div class="product_fav"><i class="fas fa-heart"></i></div>
+								
 								<ul class="product_marks">
 									<li class="product_mark product_new">new</li>
 								</ul>

@@ -25,6 +25,7 @@
                     {{session('thongbao')}}
                 </div>
                 @endif
+
                 <form action="admin/products/add" method="POST" enctype="multipart/form-data"> <!-- Form bắt buộc phải có thuộc tính enctype thì mới up được file lên -->
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
 
@@ -37,15 +38,26 @@
                         <input type="text" class="form-control input-width" name="unit_price" placeholder="Nhập Giá" value="" />
                         <p><label>Giá khuyến mãi</p>
                         <input type="text" class="form-control input-width" name="promotion_price" placeholder="Nhập Giá" value="" />
+                        
                         <p><label>Hình ảnh</label></p>
                         <input type="file" name="image"  class="form-control" >
+
+                        <p><label>Loại sản phẩm</label></p>
+                        <select name="id_type" class="form-control ">
+                            <optgroup label="Loại sp" class="form-control" >
+                            @foreach ($typeproduct as $tp)
+                            <option class="form-control " value="{{$tp->id}}">{{$tp->name}}</option>
+                            @endforeach
+                             </optgroup>
+                        </select>
                     </div>
-
-
-
+                   
+                        
+                        
+                            
                     <button type="submit" class="btn btn-default">Thêm</button>
                     <button type="reset" class="btn btn-default btn-mleft">Nhập Lại</button>
-                    <form>
+                    </form>
                     </div>
                 </div>
                 <!-- /.row -->

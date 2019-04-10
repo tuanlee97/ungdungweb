@@ -31,21 +31,26 @@
                                      <div class="form-group">
                                         FullName<input class="form-control" placeholder="" name="fullname" type="text" value="{{$user->full_name}}">
                                     </div>
+
                                      <div class="form-group">
                                         Email<input class="form-control" placeholder="" name="email" type="text" value="{{$user->email}}"readonly>
                                     </div>
+
                                     <div class="form-group">
                                         Address<input class="form-control" placeholder="" name="address" type="text" value="{{$user->address}}">
                                     </div>
+
                                     <div class="form-group" >
                                         Phone<input class="form-control" placeholder="" name="phone" type="text" value="{{$user->phone}}">
                                     </div>
+
                                     <div class="form-group">
                                         <input type="checkbox" name="changepassword" id="changepassword">
                                         Change Password<input class="form-control password" placeholder="" name="password" type="password" value="" disabled="">
                                     </div>
+
                                     <div class="form-group">
-                                        Confirm<input class="form-control password" placeholder="" name="passwordagain" type="password" value="" disabled="">
+                                        Confirm<input class="form-control password" placeholder="" name="passwordagain" type="password" value="" disabled=""></div>
                                     {{-- <div class="form-group">
                                         Create_AT<input type="date" name="create_at" value="{{$tintuc->create_at}}">
                                     </div> --}}
@@ -66,7 +71,7 @@
         <script>
             $(document).ready(function(){
                 $("#changepassword").change(function(){
-                        if($(this).is(":checked"))
+                          if($(this).is(":checked"))
                         {
                             $(".password").removeAttr('disabled');
                         }

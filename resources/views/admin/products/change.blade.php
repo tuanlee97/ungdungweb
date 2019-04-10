@@ -46,6 +46,22 @@
                         <input type="text" class="form-control input-width" name="promotion_price" placeholder="Giá khuyến mãi" value="{{$products->promotion_price}}" />
                     </div>
                     <div class="form-group">
+                        <p><label>Loại sản phẩm</label>
+                        <select name="id_type" class="form-control input-width" >
+                            <option class="form-control" value="{{$products->id_type}}">@foreach($typeproduct as $tp)
+                                @if($tp->id == $products->id_type)
+                                {{$tp->name}}
+                                @endif
+                                @endforeach</option>
+                            <optgroup label="Loại sp" class="form-control" >
+                                 @foreach($typeproduct as $tp)
+                            <option class="form-control" value="{{$tp->id}}">{{$tp->name}}</option>
+                            @endforeach
+                             </optgroup>
+                        </select>
+                        </p>
+                    </div>
+                    <div class="form-group">
                         <p><label>Image</label></p>
                 
                         <img width="320px" src="source/images/product/{{$products->image}}" alt="">

@@ -79,7 +79,7 @@
 					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
 						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
-								<div class="wishlist_icon"><img src="source/images/heart.png" alt=""></div>
+								<div class="wishlist_icon"></div>
 								<div class="wishlist_content">
 									<div class="wishlist_text"></div>
 									<div class="wishlist_count"></div>
@@ -150,7 +150,7 @@
 									<li><a href="{{route('shop')}}">Shop<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="{{route('about')}}">About us<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="{{route('blog')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
-									<li><a href="{{route('contact')}}">Contact<i class="fas fa-chevron-down"></i></a></li>
+									
 								</ul>
 							</div>
 

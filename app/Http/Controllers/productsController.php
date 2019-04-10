@@ -3,18 +3,22 @@
 namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Product;
-
+use App\ProductType;
 class productsController extends Controller
 {
     public function getds()
     {
         $products = Product::all();
-        return view('admin.products.products',['products'=>$products]);
+        $typeproduct=ProductType::all('id','name');
+        return view('admin.products.products',['products'=>$products],['typeproduct'=>$typeproduct]);
     }
     public function getadd()
     {
-        return view('admin.products.add');
+        $products = Product::all();
+        $typeproduct=ProductType::all('id','name');
+        return view('admin.products.add',['typeproduct'=>$typeproduct],['products'=>$products]);
     }
 
     public function xulyadd(Request $request)
@@ -43,6 +47,7 @@ class productsController extends Controller
         $products->description = $request->description;
         $products->unit_price= $request->unit_price;
         $products->promotion_price= $request->promotion_price;
+        $products->id_type = $request->id_type;  
         if($request->hasFile('image'))
         {
             $file = $request->file('image');
@@ -63,11 +68,14 @@ class productsController extends Controller
     public function getchange($id)
     {
         $products = Product::find($id);
-        return view('admin.products.change',['products'=>$products]);
+
+        $typeproduct=ProductType::all();
+        return view('admin.products.change',['products'=>$products,'typeproduct'=>$typeproduct]);
     }
     public function xylychange(Request $request,$id)
     {
         $products = Product::find($id);
+        $typeproduct = ProductType::find($id);
         $this->validate($request,
             [
             
@@ -83,12 +91,13 @@ class productsController extends Controller
             ]);
 
 
-        // Thêm dữ liệu vào CSDL, ở đây 1 record dữ liệu được xem như một đối tượng (object), vì ta sử dụng Eloquent nên tất cả các bảng trong CSDL đã được ánh xạ thành Model trong Laravel. Do đó dữ liệu mới được thêm vào bằng cách tạo 1 đối tượng mới.
+        // Thêm dữ liệu vào CSDL, ở đây 1 record dữ liệu được xem như một đối tượng (object), vì ta sử dụng Eloquent nên tất cả cá bảng trong CSDL đã được ánh xạ thành Model trong Laravel. Do đó dữ liệu mới được thêm vào bằng cách tạo 1 đối tượng mới.
         $products->id=$request->id;
         $products->name = $request->name;
         $products->description = $request->description;
         $products->unit_price = $request->unit_price;
         $products->promotion_price = $request->promotion_price;
+        $products->id_type=$request->id_type;
         if($request->hasFile('image'))
         {
             $file = $request->file('image');
